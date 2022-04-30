@@ -1,60 +1,57 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+    <v-app-bar class="light-blue lighten-2 white--text">
+      <v-app-bar-nav-icon class="white--text" variant="text" @click="drawer = !drawer"/>
+      <v-toolbar-title>Vuetify Practice</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-btn variant="text" icon="mdi-magnify"></v-btn>
+      <v-btn variant="text" icon="mdi-filter"></v-btn>
+      <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
     </v-app-bar>
 
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+    <v-navigation-drawer v-model="drawer" temporary>
+      <!-- <v-list :items="items"></v-list> -->
+      <v-list-item-group v-model="group" active-class="light-blue lighten-5 text--accent-4">
+          <v-list-item>
+            <v-list-item-title>Foo</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Bar</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Fizz</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Buzz</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+    </v-navigation-drawer>
+      <!-- <Page01 /> -->
+      <!-- <HelloWorld /> -->
+      <v-main></v-main>
   </v-app>
+
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import Page01 from './components/Page01';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    Page01,
+    HelloWorld
   },
 
   data: () => ({
-    //
+    drawer: null,
   }),
 };
 </script>
